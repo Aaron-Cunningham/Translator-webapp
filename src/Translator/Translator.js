@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import axios from 'axios';
 import './Translator.css'
 import languages from "../languages";
@@ -7,7 +7,6 @@ const Translator = () => {
     const [inputText, setInputText] = useState('');
     const [outputLang, setOutputLang] = useState('de');
     const [outputText, setOutPutText] = useState('');
-    const [selectedLanguage, setSelectedLanguage] = useState("");
 
     const translate = async () => {
         console.log(outputLang)
