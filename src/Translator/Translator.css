@@ -1,0 +1,59 @@
+.translator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.row-wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+}
+
+.translator-container{
+    width: 50%;
+}
+
+.top-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.btn-translate{
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+.input-lang textarea, .output-lang .output-box{
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    resize: vertical;
+    min-height: 100px;
+
+}
+
+
+
+.output-lang select{
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.output-lang .output-box {
+    min-height: 100px;
+    overflow: auto;
+}
