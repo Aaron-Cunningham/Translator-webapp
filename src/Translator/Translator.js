@@ -1,40 +1,13 @@
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
 import './Translator.css'
+import languages from "../languages";
 
 const Translator = () => {
     const [inputText, setInputText] = useState('');
     const [outputLang, setOutputLang] = useState('de');
     const [outputText, setOutPutText] = useState('');
-    const [supportedLangs, setSupportedLangs] = useState([]);
-
-
-    const languages = async () => {
-        const axios = require('axios');
-
-        const options = {
-            method: 'GET',
-            url: 'https://google-translate1.p.rapidapi.com/language/translate/v2/languages',
-            headers: {
-                'Accept-Encoding': 'application/gzip',
-                'X-RapidAPI-Key': process.env.REACT_APP_RapidAPI_Lang_Key,
-                'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
-            }
-        };
-
-        try {
-            const response = await axios.request(options);
-            setSupportedLangs(response.data.data.languages.language);
-
-            console.log(response.data);
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
-    useEffect(() => {
-        languages();
-    }, []);
+    const [selectedLanguage, setSelectedLanguage] = useState("");
 
     const translate = async () => {
         console.log(outputLang)
@@ -88,8 +61,8 @@ const Translator = () => {
                     <div className="top-row">
                         <select name="languages" id="languages" className={"form-select form-select-sm"} onChange={e => setOutputLang(e.target.value)}>
                             <option value=''>Select Language</option>
-                            {supportedLangs.map(lang => (
-                                <option key={lang.language} value={lang.language}>
+                            {languages.map((lang) => (
+                                <option key={lang.code} value={lang.code}>
                                     {lang.name}
                                 </option>
                             ))}
